@@ -48,7 +48,7 @@
         return;
       }
 
-      const fark = 1.44 * (m2 - m1);
+      const fark = 1.5 * (m2 - m1);
       const enerjiOrani = Math.pow(10, fark);
       document.getElementById('sonuc').innerText =
         `${m2} büyüklüğündeki deprem, ${m1} büyüklüğündeki depremin yaklaşık ${enerjiOrani.toFixed(2)} katı enerji açığa çıkarır.`;
