@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Deprem Enerji Farkı Hesaplama</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 500px; margin: auto; }
+    label, input, button { display: block; margin-top: 10px; }
+    input { width: 100%; padding: 8px; }
+    button { padding: 10px; margin-top: 15px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+    #sonuc { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Depremler Arası Enerji Farkı Hesaplama</h2>
+  <label for="m1">1. Depremin Büyüklüğü:</label>
+  <input type="number" id="m1" step="0.1">
+
+  <label for="m2">2. Depremin Büyüklüğü:</label>
+  <input type="number" id="m2" step="0.1">
+
+  <button onclick="hesapla()">Hesapla</button>
+
+  <div id="sonuc"></div>
+
+  <script>
+    function hesapla() {
+      const m1 = parseFloat(document.getElementById('m1').value);
+      const m2 = parseFloat(document.getElementById('m2').value);
+
+      if (isNaN(m1) || isNaN(m2)) {
+        document.getElementById('sonuc').innerText = "Lütfen her iki büyüklüğü de girin.";
+        return;
+      }
+
+      const fark = 1.5 * (m2 - m1);
+      const enerjiOrani = Math.pow(10, fark);
+      document.getElementById('sonuc').innerText =
+        `${m2} büyüklüğündeki deprem, ${m1} büyüklüğündeki depremin yaklaşık ${enerjiOrani.toFixed(2)} katı enerji açığa çıkarır.`;
+    }
+  </script>
+</body>
+</html>
